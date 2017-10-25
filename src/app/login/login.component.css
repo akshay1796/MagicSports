@@ -1,0 +1,51 @@
+.container-fluid{
+    background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/05/HD-Cool-Sports-Images.jpg") ;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    height:100%;  
+    
+}
+
+.c_name{
+    text-align: right;
+    font-family: bebas neue;
+    color: rgb(255, 255, 255);
+    font-size: 500%;
+    
+}
+.h4{
+    font-style: bebas;
+    font-size: 50px;
+    color: rgb(109, 105, 105);
+}
+
+.form-control{
+    width: 30%;
+    border-radius: 20px;
+    position: relative;
+    
+}
+.btn{
+    border-radius: 20px;
+    
+}
+.form-login{
+align-items: center;
+
+}
+.signin{
+    
+}
+.forget_pass{
+   
+}
+p{
+    color: #ffffff; 
+}
+.footer{
+    
+}
