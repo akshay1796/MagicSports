@@ -7,3 +7,11 @@
   .example-full-width {
     width: 100%;
   }
+
+  .form-control{
+    border-radius: 20px;
+  }
+  .table{
+    border-radius: 10px;
+  }
+  

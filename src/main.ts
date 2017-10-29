@@ -41,7 +41,7 @@ import {MatAutocompleteModule,
 } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { CdkTableModule } from '@angular/cdk/table';
-import { CustomerInfoComponent } from './app/invoice-details/customer-info/customer-info.component';
+import { AppComponent } from './app/app.component';
 
 @NgModule({
   exports: [
@@ -91,8 +91,8 @@ export class MagicMaterialModule {}
     MatNativeDateModule,
     ReactiveFormsModule,
   ],
-  declarations: [CustomerInfoComponent],
-  bootstrap: [CustomerInfoComponent],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
   providers: []
 })
 export class MagicAppModule {}

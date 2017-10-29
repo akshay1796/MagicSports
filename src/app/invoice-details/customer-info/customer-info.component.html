@@ -1,6 +1,6 @@
-<form class="example-form">
+<!-- <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Company (disabled)" disabled value="Google">
+      <input matInput placeholder="Company " disabled value="Google">
     </mat-form-field>
   
     <table class="example-full-width" cellspacing="0"><tr>
@@ -34,4 +34,85 @@
       </mat-form-field></td>
     </tr></table>
   </form>
-  
+   -->
+
+
+<div class="row">
+  <div class="col-md-12">
+    <label for="invoiceNo">Invoice No.</label>
+    <input type="number" class="form-control input-sm chat-input" placeholder="Invoice No." id="invoiceNo">
+    <label for="invoiceDate">Invoice Date</label>
+    <input type="Date" class="form-control input-sm chat-input" placeholder="Invoice Date" id="invoiceDate">
+    <label for="CustomerID">Customer ID</label>
+    <input type="number" class="form-control input-sm chat-input" placeholder="Customer ID" id="customerId">
+    <label for="CustomerName">Customer Name</label>
+    <input type="text" class="form-control input-sm chat-input" placeholder="Invoice No." id="invoiceNo">
+    <br>
+    <button class="btn btn-success pull-right">Save</button>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <label for="product detail" class="prod_detail">Product Details</label>
+    <label for="productName">Product Name</label>
+    <input type="text" class="form-control" placeholder="Product Name" id="productname">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <label for="unitprice">Unit Price</label>
+    <input type="number" class="form-control input-sm chat-input" placeholder="Unit price" id="unitprice">
+    <label for="saleQuantity">Sale Quantity</label>
+    <input type="number" class="form-control input-sm chat-input" placeholder="Sale Quantity" id="saleqty">
+  </div>
+  <div class="col-md-6">
+    <label for="availability">Availability</label>
+    <input type="number" class="form-control input-sm chat-input" placeholder="Availability" id="availability">
+    <label for="TotalAmount">Total Amount</label>
+    <input type="number" class="form-control input-sm chat-input" placeholder="Total Amount" id="totalamount">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <br>
+    <button class="btn btn-info pull-right">Add to Cart</button>
+  </div>
+</div>
+<hr>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Qty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>abc</td>
+            <td>20</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>xyz</td>
+            <td>200</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>pqr</td>
+            <td>100</td>
+            <td>5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,3 +1,92 @@
-<p>
-  customer-bill works!
-</p>
+<div class="row">
+  <div class="col-md-12 long">
+    <label for="searchobj">Search Object</label>
+    <hr>
+    <label for="Name">By Name</label>
+    <input type="text" class="form-control input-sm chat-input" placeholder="Search by Name" id="s_name">
+    <label for="catagory">Catagory</label>
+    <input type="text" class="form-control input-sm chat-input" placeholder="Search by Catagory" id="c_name">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <th>#</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Catagory</th>
+        <th>Price</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td> </td>
+          <td>1</td>
+          <th>RBK Bat</th>
+          <th>Bat</th>
+          <th>500</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<hr>
+
+<label for="Bill">Final Bill</label>
+
+<div class="payment">
+  <div class="row">
+    <div class="col-md-6">
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Sub-Total</span>
+        <input id="msg" type="text" class="form-control" name="msg" placeholder="Sub-total">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">GST</span>
+        <input id="msg" type="text" class="form-control" name="msg" placeholder="GST">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Discount</span>
+        <input id="msg" type="text" class="form-control" name="msg" placeholder="Discount">
+      </div>
+
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Grand-Total</span>
+        <input id="msg" type="text" class="form-control" name="msg" placeholder="GrandTotal">
+      </div>
+
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Total-Payment</span>
+        <input id="msg" type="text" class="form-control" name="msg" placeholder="TotalPayment">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">Payment-Due</span>
+        <input id="msg" type="text" class="form-control" name="msg" placeholder="Payment Due">
+      </div>
+
+      <br>
+      <div class="sms">
+        <label for="sms">Send Invoice SMS
+          <input type="checkbox">
+        </label>
+        <br>
+      </div>
+    </div>
+
+    <div class="col-md-6 abc">
+      <button class="btn btn-success btn-lg">
+        <div class="bigButton">
+        </div>
+        <h4 class="btn_txt">Purchase</h4>
+      </button>
+
+    </div>
+  </div>
+</div>
