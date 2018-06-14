@@ -1,88 +1,55 @@
-pipeline {
-    environment {
-        destBucket = "mnc-rule-bucket"
-        masterDestPath = "REAN-ManagedCloud-DEV/Master"
-        developDestPath = "REAN-ManagedCloud-DEV/Develop"
-        crossaccount_role_arn = "arn:aws:iam::107339370656:role/mncPipelineRole"
-        git_tag = "v0.1"
-    }
+#!/usr/bin/env groovy
 
+def setJobProperties() {
+  properties([
+    [
+      $class: 'BuildDiscarderProperty',
+      strategy: [
+        $class: 'BuildRotator',
+        daysToKeep: 5,
+        numToKeep: 10,
+        artifactsDaysToKeep: 5,
+        artifactsNumToKeep: 10
+      ]
+    ]
+  ])
+}
+
+pipeline {
     agent {
         node {
             label 'master'
-            customWorkspace 'workspace/REAN-ManagedCloud/REAN-ManagedCloud-DEV/'
         }
     }
-
-    stages{
-        stage('Clean the workspace before build'){
-            steps{
-                script{
-                    step([$class: 'WsCleanup'])
+    stages {
+        stage ('Code style linting') {
+            steps {
+                script {
+                    ansiColor('xterm') {
+                        println "\u001B[34m\u001B[1m******************\u001B[0m"
+                        println "\u001B[34m\u001B[1mCode Style Linting\u001B[0m"
+                        println "\u001B[34m\u001B[1m******************\u001B[0m"
+                        try {
+                            sh '''
+                                #!/bin/bash
+                                set -e
+                                python3 -m pycodestyle --ignore=E501 */*.py
+                            '''
+                            println "\u001B[32mCode adheres to PyCodeStyle\u001B[0m"
+                        } catch (Exception e) {
+                            println "\u001B[31m********************************************************\u001B[0m"
+                            println "\u001B[31mFAILED: Code style linting failed. Please fix the issues\u001B[0m"
+                            println "\u001B[31m********************************************************\u001B[0m"
+                            sh 'exit 1'
+                        }
+                    }   
                 }
             }
         }
-
-        stage('Clone the REAN Managed Cloud repository') {
-            steps {
-                echo "Cloning REAN-Managed-Cloud Repo"
-                script {
-                    try {
-	                dir('REAN-Managed-Cloud') {
-	                    git 'git@github.com:reancloud/REAN-Managed-Cloud.git'
-                        }
-                    }
-                    catch (Exception e) {
-                        println "Not able to clone the REAN Managed Cloud repository"
-                        println e
-                        sh 'exit 1'
-                    }
-                }         
-            }
-        } 
-          
-        stage('Archive the branch have Latest commit') {
-            steps {
-                echo "finding the branch have latest commit"
-                script {
-                    try {
-                        sh '''
-	                    #!/bin/bash
-	                    bash "$WORKSPACE/REAN-Managed-Cloud/archive_scripts.sh"
-                        '''
-                    }
-                    catch (Exception e) {
-                        println "Not able to Archive the REAN Managed Cloud repository"
-                        println e
-                        sh 'exit 1'
-                    }
-                }         
-            }
-        } 
-
-        stage('Upload artifacts to s3') {
-            steps {
-                echo "uploading artifacts"
-                script {
-                    try {
-                        sh '''
-	                    #!/bin/bash
-	                    bash "$WORKSPACE/REAN-Managed-Cloud/artifacts_scripts.sh"
-                        '''
-                    }
-                    catch (Exception e) {
-                        println "Not able to Upload artifacts to s3"
-                        println e
-                        sh 'exit 1'
-                    }
-                }           
-            }
-        } 
-    
-        stage('Clean the workspace after build'){
-            steps{
-                step([$class: 'WsCleanup'])
-            }
+    }
+    post {
+        always {
+            deleteDir()
         }
     }
 }
